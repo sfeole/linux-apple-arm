@@ -735,8 +735,14 @@ struct hci_conn {
 	__u16		le_supv_timeout;
 	__u8		le_adv_data[HCI_MAX_EXT_AD_LENGTH];
 	__u8		le_adv_data_len;
+<<<<<<< HEAD
 	__u8		le_per_adv_data[HCI_MAX_PER_AD_LENGTH];
 	__u8		le_per_adv_data_len;
+=======
+	__u8		le_per_adv_data[HCI_MAX_PER_AD_TOT_LEN];
+	__u16		le_per_adv_data_len;
+	__u16		le_per_adv_data_offset;
+>>>>>>> 3f1530b9e001 (Revert "Bluetooth: hci_sync: Use advertised PHYs on hci_le_ext_create_conn_sync")
 	__u8		le_tx_phy;
 	__u8		le_rx_phy;
 	__s8		rssi;
@@ -1495,6 +1501,10 @@ struct hci_conn *hci_connect_le_scan(struct hci_dev *hdev, bdaddr_t *dst,
 struct hci_conn *hci_connect_le(struct hci_dev *hdev, bdaddr_t *dst,
 				u8 dst_type, bool dst_resolved, u8 sec_level,
 				u16 conn_timeout, u8 role);
+<<<<<<< HEAD
+=======
+void hci_connect_le_scan_cleanup(struct hci_conn *conn, u8 status);
+>>>>>>> 3f1530b9e001 (Revert "Bluetooth: hci_sync: Use advertised PHYs on hci_le_ext_create_conn_sync")
 struct hci_conn *hci_connect_acl(struct hci_dev *hdev, bdaddr_t *dst,
 				 u8 sec_level, u8 auth_type,
 				 enum conn_reasons conn_reason);
